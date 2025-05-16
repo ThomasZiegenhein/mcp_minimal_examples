@@ -83,23 +83,6 @@ curl -N -H "Accept: text/event-stream" http://localhost:8800/mcp/tools/list
 | `Not Acceptable: Client must accept text/event-stream`               | Missing `Accept: text/event-stream` header       | Add `-H "Accept: text/event-stream"` to your HTTP request headers        |
 | `Bad Request: Missing session ID`                                    | Tool was called before the client opened a session | Use `async with ClientSession(...)` before tool invocation             |
 
-## 💻 Developing with GitHub Codespaces
-
-GitHub Codespaces provides a cloud-based development environment directly within your browser.
-Launching in Codespaces
-
-Click the button below to open this repository in a new Codespace:
-
-Open in GitHub Codespaces
-Features
-
-    Pre-configured development environment with all dependencies installed.
-
-    Ability to run and debug the server and client directly in the browser.
-
-    Port forwarding to preview the server's output.
-
-For more information on using GitHub Codespaces, refer to the official documentation.
 ## 📄 License
 
 This project is licensed under the Apache 2.0 License. See the LICENSE file for details.
