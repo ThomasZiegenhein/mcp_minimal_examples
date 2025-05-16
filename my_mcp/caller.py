@@ -13,6 +13,7 @@ async def main():
         async with ClientSession(read_stream, write_stream) as session:
             # Initialize the connection
             await session.initialize()
+            # Get all tools from the server
             tools = await session.list_tools()
             print("-"*100)
             print("List all tools in our server: \n")
