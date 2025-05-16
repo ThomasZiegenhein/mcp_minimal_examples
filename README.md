@@ -1,4 +1,4 @@
-# 🛰️ Minimal MCP Servers & Clients
+# Minimal MCP Examples
 [![Open in GitHub Codespace](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=984317769&skip_quickstart=true)
 
 Collection of minimal end-to-end examples without 3rd party software of the [Model Context Protocol (MCP)](https://modelcontextprotocol.io).
