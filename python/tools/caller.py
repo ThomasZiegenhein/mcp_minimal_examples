@@ -15,16 +15,10 @@ async def main():
             await session.initialize()
             # Get all tools from the server
             tools = await session.list_tools()
-            print("-"*100)
-            print("List all tools in our server: \n")
-            print(tools)
-            print("\n")
-            print("+"*100)
-            print("Call the echo tool with a message: \n")
+            print(f"list_tools() command: \n {tools}")
             # Call a tool
-            tool_result = await session.call_tool("echo", {"message": "Hello, I'm a mcp tool"})
-            print(tool_result)
-            print("\n")
+            tool_result = await session.call_tool("echo", {"text": "Hello World"})
+            print(f"call_tool for echo: \n {tool_result}")
 
 if __name__ == "__main__":
     asyncio.run(main())
