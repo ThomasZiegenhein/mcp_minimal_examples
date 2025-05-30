@@ -10,13 +10,19 @@ All examples run local, in codespace, and provide a Docker for the server and a 
 
 .\
 ├── python \
+├── prompts \
+│ │ ├── server.py # MCP server exposing planet_prompt() template \
+│ │ ├── client.py # Async client example \
+├── resources \
+│ │ ├── server.py # MCP server exposing user and product resources \
+│ │ ├── client.py # Async client example \
 │ ├── tools \
-│ │ ├── server.py # MCP server exposing echo()\
-│ │ ├── client.py # Async client example\
-│ │ ├── Dockerfile # Docker image for the server\
-│ │ └── init.py\
-│ ├── requirements.txt # Python dependencies\
-└── LICENSE # Apache-2.0 License\
+│ │ ├── server.py # MCP server exposing echo() \
+│ │ ├── client.py # Async client example \
+│ │ ├── Dockerfile # Docker image for the server \
+│ │ └── docker-compose.yml # Docker compose to start docker image \
+│ ├── requirements.txt # Python dependencies \
+└── LICENSE # Apache-2.0 License \
 
 ---
 
@@ -64,7 +70,7 @@ cd /python/tools/
 docker compose up -d
 ```
 
-The server will be accessible at http://localhost:8800/mcp.
+The server will be accessible at http://localhost:8000/mcp.
 ## 🧪 Testing with curl or Postman
 
 MCP's streamable-http transport uses Server-Sent Events (SSE). Ensure your
@@ -72,14 +78,14 @@ client sets the Accept: text/event-stream header.
 Example with curl:
 
 ```bash
-curl -N -H "Accept: text/event-stream" http://localhost:8800/mcp/tools/list
+curl -N -H "Accept: text/event-stream" http://localhost:8000/mcp/tools/list
 ```
 
 ## 🛠️ Troubleshooting
 
 | Issue                                                                 | Cause                                           | Solution                                                                 |
 |------------------------------------------------------------------------|--------------------------------------------------|--------------------------------------------------------------------------|
-| `curl: (56) Recv failure: Connection reset by peer`                   | Server is bound to `127.0.0.1` inside container  | Use `host="0.0.0.0"` and expose the port with `-p 8800:8800`             |
+| `curl: (56) Recv failure: Connection reset by peer`                   | Server is bound to `127.0.0.1` inside container  | Use `host="0.0.0.0"` and expose the port with `-p 8000:8000`             |
 | `Not Acceptable: Client must accept text/event-stream`               | Missing `Accept: text/event-stream` header       | Add `-H "Accept: text/event-stream"` to your HTTP request headers        |
 | `Bad Request: Missing session ID`                                    | Tool was called before the client opened a session | Use `async with ClientSession(...)` before tool invocation             |
 

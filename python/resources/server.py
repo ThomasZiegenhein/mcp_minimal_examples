@@ -25,4 +25,4 @@ def get_user_data(product_id: str,  detail_level: bool) -> dict:
     return _product_producer(product_id=product_id, details=detail_level)
 
 if __name__ == "__main__":
-    mcp.run(transport="streamable-http", host="0.0.0.0", port=8820, path="/mcp")
+    mcp.run(transport="streamable-http", host="0.0.0.0", port=8020, path="/mcp")

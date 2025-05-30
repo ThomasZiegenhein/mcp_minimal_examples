@@ -3,4 +3,4 @@ services:
     image: mcptutbare:latest
     container_name: my_mcp
     ports:
-      - "127.0.0.1:8800:8800"
+      - "127.0.0.1:8000:8000"
