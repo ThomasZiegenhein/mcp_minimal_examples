@@ -9,19 +9,18 @@ All examples run local, in codespace, and provide a Docker for the server and a 
 ## 📁 Repository Structure
 
 .\
-├── python \
-├── prompts \
-│ │ ├── server.py # MCP server exposing planet_prompt() template \
-│ │ ├── client.py # Async client example \
-├── resources \
-│ │ ├── server.py # MCP server exposing user and product resources \
-│ │ ├── client.py # Async client example \
-│ ├── tools \
-│ │ ├── server.py # MCP server exposing echo() \
-│ │ ├── client.py # Async client example \
-│ │ ├── Dockerfile # Docker image for the server \
-│ │ └── docker-compose.yml # Docker compose to start docker image \
-│ ├── requirements.txt # Python dependencies \
+├── mcp-prompts \
+│ ├── server.py # MCP server exposing planet_prompt() template \
+│ ├── client.py # Async client example \
+├── mcp-resources \
+│ ├── server.py # MCP server exposing user and product resources \
+│ ├── client.py # Async client example \
+├── mcp-tools \
+│ ├── server.py # MCP server exposing echo() \
+│ ├── client.py # Async client example \
+│ ├── Dockerfile # Docker image for the server \
+│ └── docker-compose.yml # Docker compose to start docker image \
+├── requirements.txt # Python dependencies \
 └── LICENSE # Apache-2.0 License \
 
 ---
@@ -61,13 +60,20 @@ Expected output:
 Build the Docker image:
 ```bash
 cd /python/tools/
-docker build -t mcp_echo .
+docker build -t my_mcp .
 ```
 Run the container:
     
 ```bash
 cd /python/tools/
 docker compose up -d
+```
+
+#### Client/caller
+Same as you would run it local in python:
+
+```bash
+python python/tools/client.py
 ```
 
 The server will be accessible at http://localhost:8000/mcp.
